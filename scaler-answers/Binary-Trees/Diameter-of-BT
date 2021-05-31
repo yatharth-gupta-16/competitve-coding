@@ -1,0 +1,21 @@
+ int maxi=0;
+ 
+int solve1(TreeNode* A)
+{
+    if(A==NULL)
+    {
+        return 0;
+    }
+    int l = solve1(A->left);
+    int r = solve1(A->right);
+    
+    maxi = max(l+r,maxi);
+    return max(l+1,r+1);
+}
+ 
+int Solution::solve(TreeNode* A) {
+    
+    maxi=0;
+    int f = solve1(A);
+    return maxi;
+}
